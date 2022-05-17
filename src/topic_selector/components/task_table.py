@@ -6,7 +6,7 @@ cols = ["Task Name", "Description"]
 task_table = dash_table.DataTable(
     id="table-editing-simple",
     columns=([{"id": p, "name": p} for p in cols]),
-    data=[dict(Model=1, **i) for i in df_dummy.T.to_dict().values()],
+    data=[dict(**i) for i in df_dummy.T.to_dict().values()],
     # [dict(Model=i, **{param: 0 for param in cols}) for i in range(1, len(cols) + 1)],
     editable=True,
 )

@@ -1,3 +1,4 @@
+"""Dash components for the table where components are created"""
 from dash import Dash, dash_table, dcc, html
 from topic_selector.dummy.dummy_data import df_dummy
 from dash.dependencies import Input, Output, State
@@ -5,6 +6,7 @@ from __init__ import dashapp
 
 cols = ["Task Name", "Description"]
 
+# table containing the tasks
 task_table = dash_table.DataTable(
     id="task-table",
     columns=([{"id": p, "name": p} for p in cols]),
@@ -14,9 +16,10 @@ task_table = dash_table.DataTable(
     row_deletable=True,
 )
 
-
+# button to add rows
 rowadd_button = html.Button("Add Row", id="editing-rows-button", n_clicks=0)
 
+# combined layout
 table_layout = html.Div([task_table, rowadd_button])
 
 
@@ -27,6 +30,7 @@ table_layout = html.Div([task_table, rowadd_button])
     State("task-table", "columns"),
 )
 def add_row(n_clicks, rows, columns):
+    """Add a blank row to the table"""
     if n_clicks > 0:
         rows.append({c["id"]: "" for c in columns})
     return rows

@@ -1,3 +1,5 @@
+"""Functions for choosing topics"""
+
 import random
 import numpy as np
 

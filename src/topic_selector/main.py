@@ -1,3 +1,5 @@
+"""Script to run the Dash app"""
+
 from __init__ import dashapp
 from dash import Dash, dash_table, dcc, html
 from dash.dependencies import Input, Output

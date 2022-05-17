@@ -1,3 +1,5 @@
+"""Dash components for selecting topics"""
+
 from __init__ import dashapp
 from dash import html
 from dash.dependencies import Input, Output, State

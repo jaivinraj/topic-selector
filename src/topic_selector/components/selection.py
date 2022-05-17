@@ -18,8 +18,8 @@ selection_layout = html.Div(
 @dashapp.callback(
     Output("chosen-topic-output", "children"),
     Input("choose-topic-button", "n_clicks"),
-    Input("task-table", "data"),
-    Input("task-table", "columns"),
+    State("task-table", "data"),
+    State("task-table", "columns"),
 )
 def choose_topic(n_clicks, rows, columns):
     df = dash_table_to_dataframe(rows, columns)

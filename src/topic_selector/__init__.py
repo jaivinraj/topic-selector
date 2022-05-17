@@ -1,7 +1,7 @@
 from dash import Dash, dash_table
 from dash_bootstrap_components import themes
 
-app = Dash(
+dashapp = Dash(
     __name__,
     external_stylesheets=[
         themes.BOOTSTRAP,

@@ -32,3 +32,6 @@ numpy
 scipy
 dash
 absl-py
+pytest
+dash-html-components
+dash-bootstrap-components

@@ -3,7 +3,7 @@ from dash import Dash, dash_table, dcc, html
 from dash.dependencies import Input, Output
 from dash_bootstrap_components import themes
 import pandas as pd
-from topic_selector.components.task_table import task_table
+from topic_selector.components.task_table import table_layout
 from topic_selector.components.selection import selection_layout
 
 # app = Dash(
@@ -14,7 +14,7 @@ from topic_selector.components.selection import selection_layout
 #     ],
 # )
 
-dashapp.layout = html.Div([selection_layout, task_table])
+dashapp.layout = html.Div([selection_layout, table_layout])
 
 # @app.callback(
 #     Output("table-editing-simple-output", "figure"),

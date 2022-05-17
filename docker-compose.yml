@@ -7,5 +7,6 @@ services:
     build: .
     volumes:
       - ".:/app"
-    network_mode: host
+    ports:
+      - "8050:8050"
     command: tail -f /dev/null

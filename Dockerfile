@@ -21,6 +21,8 @@ COPY . /app
 # install pip then packages
 RUN pip install -r requirements.txt
 
+RUN pip install .
+
 # install current package
 # RUN pip install .
 

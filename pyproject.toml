@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "continuous-assessment"
+version = "1.0.0"
+description = "Example Python project"
+authors = ["Jaivin <jaivin.raj16@gmail.com>"]
+
+packages = [
+    { include = "topic_selector", from = "src" },
+]
+
+[tool.poetry.scripts]
+example-app = "example.app:main"
+
+[tool.poetry.dependencies]
+python = "~3.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

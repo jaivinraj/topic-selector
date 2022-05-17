@@ -1,35 +1,50 @@
-# Run this app with `python app.py` and
-# visit http://127.0.0.1:8050/ in your web browser.
-
-from dash import Dash, html, dcc
-import plotly.express as px
+from dash import Dash, dash_table, dcc, html
+from dash.dependencies import Input, Output
 import pandas as pd
+from topic_selector.components.task_table import task_table
 
 app = Dash(__name__)
 
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
-df = pd.DataFrame(
-    {
-        "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-        "Amount": [4, 1, 2, 2, 4, 5],
-        "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"],
-    }
-)
-
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+# params = ["Weight", "Torque", "Width", "Height", "Efficiency", "Power", "Displacement"]
 
 app.layout = html.Div(
-    children=[
-        html.H1(children="Hello Dash"),
-        html.Div(
-            children="""
-        Dash: A web application framework for your data.
-    """
-        ),
-        dcc.Graph(id="example-graph", figure=fig),
+    [
+        task_table
+        # dash_table.DataTable(
+        #     id="table-editing-simple",
+        #     columns=(
+        #         [{"id": "Model", "name": "Model"}]
+        #         + [{"id": p, "name": p} for p in params]
+        #     ),
+        #     data=[dict(Model=i, **{param: 0 for param in params}) for i in range(1, 5)],
+        #     editable=True,
+        # ),
+        # dcc.Graph(id="table-editing-simple-output"),
     ]
 )
 
+
+# @app.callback(
+#     Output("table-editing-simple-output", "figure"),
+#     Input("table-editing-simple", "data"),
+#     Input("table-editing-simple", "columns"),
+# )
+# def display_output(rows, columns):
+#     df = pd.DataFrame(rows, columns=[c["name"] for c in columns])
+#     return {
+#         "data": [
+#             {
+#                 "type": "parcoords",
+#                 "dimensions": [
+#                     {"label": col["name"], "values": df[col["id"]]} for col in columns
+#                 ],
+#             }
+#         ]
+#     }
+
+
 if __name__ == "__main__":
-    app.run_server(host="0.0.0.0", debug=True)
+    app.run_server(
+        debug=True,
+        host="0.0.0.0",
+    )

@@ -21,7 +21,7 @@ I initially made this for my younger brother when he was revising for exams. He 
 ## ToDo 📝
 
 - [x] Create task generator
-- [ ] Create probabilistic implementation (based on priority)
+- [x] Create probabilistic implementation (based on priority)
 - [ ] Create database structure
 - [ ] Make the dashboard prettier
 - [ ] Allow importing list

@@ -4,7 +4,7 @@ from topic_selector.dummy.dummy_data import df_dummy
 from dash.dependencies import Input, Output, State
 from __init__ import dashapp
 
-cols = ["Task Name", "Description"]
+cols = ["Task Name", "Description", "Priority (1-5, low-high)"]
 
 # table containing the tasks
 task_table = dash_table.DataTable(

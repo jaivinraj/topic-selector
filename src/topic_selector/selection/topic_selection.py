@@ -2,6 +2,7 @@
 
 import random
 import numpy as np
+from topic_selector.selection.probability import get_distr
 
 
 def select_random(topics, probs=None, set_seed=False):
@@ -22,6 +23,12 @@ def select_random(topics, probs=None, set_seed=False):
     if set_seed:
         random.seed(42)
     return random.choice(topics)
+
+
+def select_prob(topics, probs, set_seed=False):
+    distr = get_distr(probs)
+    idx = distr.rvs(size=1, random_state=42 if set_seed else None)
+    return topics[idx[0]]
 
 
 def select_topic(topics, probs=None, selection_function=select_random, *args, **kwargs):
